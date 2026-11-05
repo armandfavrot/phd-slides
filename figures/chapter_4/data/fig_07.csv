@@ -1,0 +1,21 @@
+model,hidden_size,nonlinearity,k,mae,training_population,experiment
+h_512_nl_relu,512,relu,0,6.223640007642928,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,1,5.308964874834288,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,2,4.985741585979638,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,3,3.751720113123015,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,4,7.141420994207141,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,5,5.758219840265853,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,6,5.4281590406347675,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,7,5.391410305457239,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,8,5.742907465348173,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,9,4.801625738671737,with micromet. trials,05_physique
+h_512_nl_relu,512,relu,0,6.254425899261914,with all trials,05_physique_4
+h_512_nl_relu,512,relu,1,5.080732331265331,with all trials,05_physique_4
+h_512_nl_relu,512,relu,2,4.969590770828808,with all trials,05_physique_4
+h_512_nl_relu,512,relu,3,4.138712679805686,with all trials,05_physique_4
+h_512_nl_relu,512,relu,4,6.486824203166615,with all trials,05_physique_4
+h_512_nl_relu,512,relu,5,5.831059076430307,with all trials,05_physique_4
+h_512_nl_relu,512,relu,6,5.382135834664686,with all trials,05_physique_4
+h_512_nl_relu,512,relu,7,5.035910669127286,with all trials,05_physique_4
+h_512_nl_relu,512,relu,8,6.108271894046698,with all trials,05_physique_4
+h_512_nl_relu,512,relu,9,5.171877696135435,with all trials,05_physique_4

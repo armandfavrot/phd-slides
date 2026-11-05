@@ -1,0 +1,5 @@
+id,app_method,tan_app,incorp,till,fer_origin,fer_forme,fer_trt1,fer_trt2,crop,crop_z,soil_type,app_rate,fer_dm,fer_ph,time_incorp,furrow_z,soil_water,soil_ph,soil_dens,soil_oc
+1141,bc,4.32,none,no,pig,solid,none,none,bare soil,,loam,9.6,30.28,,,,,,,1.98
+1454,ts,17.57,none,no,cat,liquid,none,none,grass,7.0,loam,25.1,3.01,6.8,,,,6.6,1.2,2.17
+1463,bsth,22.68,none,no,cat,liquid,none,none,grass,13.0,loam,31.5,1.04,7.7,,,,6.6,1.2,2.17
+3481,bc,14.239,none,unknown,cat,liquid,none,none,grass,6.0,clay,9.8,7.22,7.0,,,,,,

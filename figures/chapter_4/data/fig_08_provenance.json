@@ -1,0 +1,15 @@
+{
+  "generated_on": "2026-10-08",
+  "model_response": "physical",
+  "device": "cpu",
+  "checkpoint": "scripts/package/03_model_training/results/models/model_ammonia_pred.pth",
+  "checkpoint_sha256": "2baef0df0f2fffe313dd62b93c488a6bd2e11176fc1c454690d931f059207628",
+  "source": "scripts/model_selection_2/00_prep/data.csv",
+  "prediction_precision": "unrounded internal predictions; same public preprocessing",
+  "rows": 51,
+  "extension_horizon_hours": 500,
+  "extension_step_hours": 12,
+  "extension_weather": "last observed air_temp, wind_2m and rain_rate held constant",
+  "extended_rows": 185,
+  "original_predictions_verified_unchanged": true
+}

@@ -1,0 +1,17 @@
+"dataset","method","response","MSE","RMSE","Pearsons_r","ME","MAE","MBE"
+"Calibration subset","alfam2","72h cum. emission",113.86,10.67,0.82,0.61,6.64,-2.98
+"Evaluation subset","alfam2","72h cum. emission",65.29,8.08,0.86,0.62,5.65,-2.81
+"Calibration subset","random forest","72h cum. emission",12.36,3.52,0.98,0.96,2.21,0.14
+"Evaluation subset","random forest","72h cum. emission",20.34,4.51,0.94,0.88,3.28,0.92
+"Calibration subset","xgboost","72h cum. emission",0.54,0.73,1,1,0.26,0
+"Evaluation subset","xgboost","72h cum. emission",38.34,6.19,0.9,0.78,4.09,0.51
+"Calibration subset","lasso","72h cum. emission",122.02,11.05,0.78,0.58,6.7,-2.56
+"Evaluation subset","lasso","72h cum. emission",53.32,7.3,0.84,0.69,5.57,-1.38
+"Calibration subset","alfam2","72h relative cum. emission",0.03,0.18,0.8,0.53,0.12,-0.06
+"Evaluation subset","alfam2","72h relative cum. emission",0.02,0.15,0.79,0.58,0.11,-0.04
+"Calibration subset","random forest","72h relative cum. emission",0,0.05,0.98,0.96,0.04,0.01
+"Evaluation subset","random forest","72h relative cum. emission",0.01,0.1,0.92,0.81,0.08,0.03
+"Calibration subset","xgboost","72h relative cum. emission",0,0.01,1,1,0,0
+"Evaluation subset","xgboost","72h relative cum. emission",0.01,0.12,0.89,0.75,0.08,0.01
+"Calibration subset","lasso","72h relative cum. emission",0.03,0.16,0.79,0.59,0.11,-0.04
+"Evaluation subset","lasso","72h relative cum. emission",0.02,0.16,0.77,0.55,0.12,0

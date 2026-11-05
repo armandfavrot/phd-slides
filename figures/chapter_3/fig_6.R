@@ -1,0 +1,216 @@
+# ---------------------------------------------------------------------
+### Set up
+packages = c(
+    "ggplot2",
+    "dplyr"
+)
+
+suppressWarnings( suppressMessages (invisible (lapply (packages, FUN = function(X) {do.call ("library", list(X))}))))
+
+results_directory = "data"
+figures_directory = "pdf"
+
+dir.create(figures_directory, recursive = TRUE, showWarnings = FALSE)
+
+source("functions/R_functions.R")
+
+
+f_theme()
+
+Dark2 = c ("#1B9E77FF", "#D95F02FF", "#7570B3FF", "#E7298AFF",
+           "#66A61EFF", "#E6AB02FF", "#A6761DFF", "#666666FF")
+Dark2 [1] = "#56B4E9"
+
+options(
+  ggplot2.discrete.colour = function(...) {
+    scale_colour_manual (values = Dark2, ...)
+  },
+  ggplot2.discrete.fill = function(...) {
+    scale_fill_manual (values = Dark2, ...)
+  }
+)
+
+
+df_res1_folds = read.csv (file = file.path(results_directory, "df_res_1.csv"))
+
+df_res1 = df_res1_folds %>%
+    summarise (
+        mae = mean (mae),
+        .by = c (
+            strategy, source_domain, alternative_data,
+            target_mm_data, p, repetition
+        )
+    )
+
+df_res1_ref = df_res1 %>%
+    filter (strategy == "target_mm_only" & p == "all")
+
+MAE_ref = df_res1_ref %>%
+    summarise (MAE = mean (mae), .by = target_mm_data)
+
+plot_data = df_res1 %>%
+    filter (! (strategy == "target_mm_only" & p == "all"))
+
+
+df1 = plot_data %>%
+    filter (strategy %in% c (
+        "source_to_alternative_to_target_mm",
+        "alternative_to_target_mm"
+    )) %>%
+    mutate (origin = recode (
+        target_mm_data,
+        "micro_met_cat" = "cat",
+        "micro_met_pig" = "pig"
+    )) %>%
+    mutate (alternative_method = recode (
+        alternative_data,
+        "CaractAir_cat" = "CaractAir", "CaractAir_pig" = "CaractAir",
+        "chamber_cat" = "chamber", "chamber_pig" = "chamber",
+        "cps_cat" = "cps", "cps_pig" = "cps",
+        "wt_pig" = "wt", "wt_cat" = "wt"
+    ))
+
+
+df2 = plot_data %>%
+    filter (strategy %in% c (
+        "source_to_target_mm",
+        "target_mm_only",
+        "target_mean"
+    )) %>%
+    mutate (origin = recode (
+        target_mm_data,
+        "micro_met_cat" = "cat",
+        "micro_met_pig" = "pig"
+    )) %>%
+    cross_join (data.frame (
+        alternative_method = c ("CaractAir", "chamber", "cps", "wt")
+    ))
+
+
+df = rbind (df1, df2)
+
+MAE_cat = MAE_ref %>%
+    filter (target_mm_data == "micro_met_cat") %>%
+    pull (MAE)
+MAE_pig = MAE_ref %>%
+    filter (target_mm_data == "micro_met_pig") %>%
+    pull (MAE)
+
+
+df_hline = data.frame (
+    origin = c ("cat", "pig"),
+    yintercept = c (MAE_cat, MAE_pig)
+) %>%
+    mutate (origin = recode (
+        origin,
+        "cat" = "A = Cattle",
+        "pig" = "A = Pig"
+    )) %>%
+    mutate (origin = factor (
+        origin,
+        levels = c ("A = Cattle", "A = Pig")
+    ))
+
+
+df_plot = df %>%
+    mutate (Model = factor (strategy, levels = c (
+        "source_to_target_mm",
+        "source_to_alternative_to_target_mm",
+        "alternative_to_target_mm",
+        "target_mm_only",
+        "target_mean"
+    ))) %>%
+    mutate (origin = recode (
+        origin,
+        "cat" = "A = Cattle",
+        "pig" = "A = Pig"
+    )) %>%
+    mutate (origin = factor (
+        origin,
+        levels = c ("A = Cattle", "A = Pig")
+    )) %>%
+    mutate (alternative_method = recode (
+        alternative_method,
+        "CaractAir" = "x = CaractAir",
+        "wt" = "x = Wind tunnel",
+        "chamber" = "x = Dynamic chamber",
+        "cps" = "x = Cps"
+    )) %>%
+    mutate (alternative_method = factor (
+        alternative_method,
+        levels = c ("x = Wind tunnel", "x = CaractAir", "x = Cps", "x = Dynamic chamber")
+    ))
+
+df_plot_folds = df_plot %>%
+    select (-mae) %>%
+    left_join (
+        df_res1_folds,
+        by = c (
+            "strategy", "source_domain", "alternative_data",
+            "target_mm_data", "p", "repetition"
+        ),
+        relationship = "many-to-many"
+    )
+
+
+
+
+# ---------------------------------------------------------------------
+### Figure 6
+
+df_arrows_fig_6 = df_plot %>%
+    filter (
+        alternative_method == "x = Wind tunnel",
+        Model == "source_to_alternative_to_target_mm"
+    ) %>%
+    summarise (
+        hidden_mae = max (mae),
+        box_upper = max (mae[
+            mae <= quantile (mae, 0.75) + 1.5 * IQR (mae)
+        ]),
+        .by = c (origin, alternative_method, Model, p)
+    ) %>%
+    filter (hidden_mae > 25) %>%
+    mutate (
+        label = paste0 (round (hidden_mae, 1), "\n\u2191"),
+        label_y = box_upper * 1.14
+    )
+
+fig_6 = df_plot %>%
+    filter (alternative_method %in% c ("x = CaractAir", "x = Wind tunnel")) %>%
+    filter (Model %in% c ("source_to_target_mm", "source_to_alternative_to_target_mm", "target_mm_only", "target_mean")) %>%
+    ggplot () +
+        geom_boxplot (aes (x = p, y = mae, fill = Model), outlier.alpha = 0.45) +
+        geom_hline(
+            data = df_hline,
+            aes(yintercept = yintercept),
+            linewidth = 0.8,
+            linetype = 2
+        ) +
+        geom_text (
+            data = df_arrows_fig_6,
+            aes (x = p, y = label_y, label = label),
+            position = position_nudge (x = 0.19),
+            inherit.aes = FALSE,
+            size = 4
+        ) +
+        facet_grid (alternative_method ~ origin, scales = "free_y") +
+        scale_y_log10 () +
+        coord_cartesian (ylim = c (NA, 25)) +
+        scale_fill_manual (values = c ("source_to_target_mm" = Dark2[2],
+                                       "source_to_alternative_to_target_mm" = "#F28E2B",
+                                       "target_mm_only" = "#A6CEE3",
+                                       "target_mean" = "#1F78B4"),
+                           breaks = c ("source_to_target_mm", "source_to_alternative_to_target_mm", "target_mm_only", "target_mean"),
+                           labels = expression (paste ("1-", bar (E(A)), "-2-", plain(mm)[italic(p)], "(A)"),
+                                                paste ("1-", bar (E(A)), "-2-x(A)-3-", plain(mm)[italic(p)], "(A)"),
+                                                paste ("1-", plain(mm)[italic(p)], "(A)"),
+                                                paste ("mean-model-", plain(mm)[italic(p)], "(A)"))) +
+        xlab ("p") +
+        ylab (expression("MAE (kg N-" * plain(NH)[3] * " ha"^{-1} * ")"))
+
+
+cairo_pdf (file = file.path(figures_directory, "fig_6.pdf"), width = 14, height = 11, family = FIGURE_FONT)
+fig_6 + guides(fill = guide_legend(nrow = 2, byrow = TRUE))
+dev.off()
+publish_pdf("fig_6.pdf")

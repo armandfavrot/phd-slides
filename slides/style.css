@@ -1,0 +1,290 @@
+
+.reveal {
+  font-family: "Latin Modern Roman", serif;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: "Latin Modern Roman", serif;
+}
+
+.title {
+  font-size: 60px !important;
+  /*color: red !important;*/
+}
+
+.small-output {
+  font-size: 14px !important;  /* Ajuste la taille de la police */
+}
+
+
+.small-list ul ul {
+  font-size: 0.7em;  /* Even smaller for sub-bullets */
+}
+
+
+.scrollable-table {
+    max-height: 250px; /* Adjust as needed */
+    overflow-y: auto;
+    display: block;
+    font-size: 0.6em; 
+}
+
+.scrollable-table2 {
+    max-height: 550px; /* Adjust as needed */
+    overflow-y: auto;
+    display: block;
+    font-size: 0.6em; 
+}
+
+.small-text {
+  font-size: 0.8em;
+}
+
+
+
+.tiny7-text {
+  font-size: 0.7em;
+}
+
+
+.tiny-text {
+  font-size: 0.6em;
+}
+
+.tiny2-text {
+  font-size: 0.5em;
+  margin-left: 30px;
+}
+
+.marginleft {
+  margin-left: 30px;
+}
+
+.tiny3-text {
+  font-size: 0.5em;
+}
+
+
+.tiny4-text {
+  font-size: 0.45em;
+}
+
+
+
+.center {
+  text-align: center;
+}
+
+
+.highlight-bg {
+  background-color: transparent;
+}
+
+.reveal .fragment.highlight-bg.visible {
+  background-color: #ffff00; /* Couleur qui apparaît après le clic */
+}
+
+
+.reveal h1 {
+  font-size: 60px; 
+}
+
+
+
+.bold-temp {
+  font-weight: normal;
+}
+.bold-temp.current-fragment {
+  font-weight: bold;
+}
+
+.unbold-temp {
+  font-weight: bold;
+}
+.unbold-temp.current-fragment {
+  font-weight: normal;
+}
+
+
+
+.references {
+  font-size: 0.7em;      /* Reduce font size */
+  line-height: 1.6;      /* Increase vertical spacing */
+}
+
+
+
+.references > div {
+  margin-bottom: 1em; /* Increase vertical space between the entries */
+}
+
+.reveal .slides section.titre-masque > h2 {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.reveal .slides section.titre-alfam2 > h2 {
+  font-size: 47px;
+  margin-left: -50px;
+}
+
+
+/* Temporarily hide the overview during the MLP explanation (steps 15-16). */
+.reveal .slides section.rnn-sequence:has(.rnn-mlp-start.visible):not(:has(.rnn-mlp-end.visible)) .rnn-overview,
+.reveal .slides section.rnn-sequence:has(.rnn-mlp-start.visible):not(:has(.rnn-mlp-end.visible)) .rnn-overview * {
+  visibility: hidden;
+}
+
+.reveal .slides section.rnn-sequence .rnn-mlp-explanation {
+  position: absolute;
+  inset: 0;
+}
+
+.reveal .slides section.rnn-sequence .rnn-mlp-text {
+  margin-top: 80px;
+}
+
+/* Foundation-model story: scoped to the five new slides. */
+.reveal .slides section.foundation-slide > h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.reveal .foundation-slide { font-size: 29px; }
+.reveal .foundation-lead { color: #315c6b; margin: 12px 0 32px; }
+.reveal .foundation-timeline, .reveal .foundation-process {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.reveal .foundation-process { grid-template-columns: 1fr 1fr; }
+.reveal .foundation-card {
+  padding: 24px;
+  border: 1px solid #cadce1;
+  border-top: 5px solid #39798a;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+}
+.reveal .foundation-card h3 { font-size: 30px; margin: 18px 0; }
+.reveal .foundation-card p { margin: 16px 0 0; }
+.reveal .foundation-kicker { font-size: 18px; font-weight: bold; color: #39798a; }
+.reveal .foundation-flow { display: flex; flex-direction: column; gap: 8px; text-align: center; font-size: 25px; }
+.reveal .foundation-flow small { font-size: 19px; }
+.reveal .foundation-model { background: #dcece8; border-radius: 6px; padding: 10px; }
+.reveal .foundation-source { font-size: 17px; line-height: 1.4; margin-top: 24px; }
+.reveal .foundation-takeaway { padding: 16px 20px; margin-top: 24px; background: #dcece8; border-radius: 6px; font-size: 27px; }
+.reveal .foundation-takeaway p { margin: 0; }
+.reveal .foundation-task { display: flex; gap: 32px; align-items: center; justify-content: center; margin: 30px 0 40px; }
+.reveal .foundation-task > div { background: rgba(255,255,255,.65); border: 1px solid #cadce1; padding: 20px 30px; border-radius: 6px; }
+.reveal .foundation-folds { display: grid; grid-template-columns: repeat(10, 1fr); gap: 9px; margin-top: 25px; }
+.reveal .foundation-folds span { text-align: center; padding: 14px 0; border-radius: 4px; background: #dcece8; }
+.reveal .foundation-folds .foundation-test-fold { background: #f2cfa3; }
+.reveal .foundation-fold-key { display: flex; justify-content: space-between; font-size: 19px; margin-top: 10px; }
+.reveal .foundation-chart { display: grid; }
+.reveal .foundation-chart > p { display: contents; }
+.reveal .foundation-chart img { grid-area: 1 / 1; width: 100%; height: 425px; max-height: none; margin: 0; object-fit: contain; }
+.reveal .foundation-chart-caption { font-size: 18px; text-align: center; }
+.reveal .foundation-chart-caption p { margin: 4px 0; }
+.reveal .foundation-result { font-size: 27px; text-align: center; color: #246b59; margin-top: 20px; }
+.reveal .foundation-rip { font-size: 46px; text-align: center; padding: 55px 0 30px; color: #315c6b; }
+.reveal .foundation-tombstone .foundation-rip p { margin: 0; }
+.reveal .foundation-tombstone > h2 { margin: 0; }
+.reveal .rip-tombstone { display: block; width: 192px; height: 200px; margin: 0 auto; }
+.reveal .rip-question { text-align: center; font-size: 120px; line-height: 1.1; color: #315c6b; margin-top: 40px; }
+.reveal .conclusion-points { display: grid; gap: 30px; margin-top: 45px; }
+.reveal .conclusion-points ul { margin-top: 0; margin-bottom: 0; }
+.reveal .foundation-questions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 38px; font-size: 25px; }
+.reveal .foundation-questions > div { border-top: 3px solid #39798a; padding-top: 16px; }
+/* Personal introduction: one slide, reversible Reveal fragments, two tracks. */
+.reveal .slides section.bio-slide > h2 { font-size: 37px; margin: 0 0 24px; }
+.reveal .bio-stage { position: relative; height: 385px; }
+.reveal .bio-scene { position: absolute; inset: 0; display: grid; grid-template-columns: 1.45fr 1fr; gap: 26px; align-items: center; }
+.reveal .bio-copy { text-align: left; }
+.reveal .bio-date { font-size: 20px; font-weight: bold; color: #39798a; margin-bottom: 19px; }
+.reveal .bio-scene h3 { font-size: 35px; line-height: 1.2; margin: 0 0 23px; }
+.reveal .bio-quote { font-size: 26px; line-height: 1.5; margin: 0; }
+.reveal .bio-quote strong { font-weight: 600; }
+.reveal .bio-foot { font-size: 20px; line-height: 1.4; color: #576870; margin-top: 22px; }
+.reveal .bio-visual { position: relative; text-align: center; color: #39798a; }
+.reveal .bio-icon { width: 150px; height: 150px; display: block; margin: 25px auto; }
+.reveal .bio-monopoly { display: inline-block; background: #bc282b; color: white; border: 3px solid white; outline: 2px solid #bc282b; font: bold 26px sans-serif; padding: 8px 16px; transform: rotate(-7deg); }
+.reveal .bio-money { color: #b57a17; font-size: 48px; font-weight: bold; letter-spacing: 10px; }
+.reveal .bio-father-frame { width: 350px; height: 225px; overflow: hidden; border-radius: 9px; margin: auto; }
+.reveal .bio-father-frame img { display: block; width: 400px; max-width: none; max-height: none; margin: -99px 0 0; }
+.reveal .bio-credit { display: block; font-size: 13px; margin-top: 8px; }
+.reveal img.bio-brothers, .reveal img.bio-brest { width: 390px; max-height: 290px; object-fit: contain; border-radius: 9px; margin: 0; }
+.reveal .bio-tracks { margin-top: 20px; text-align: left; }
+.reveal .bio-track-label { color: #39798a; font-size: 16px; font-weight: bold; margin-bottom: 9px; }
+.reveal .bio-track { display: grid; grid-template-columns: repeat(8, 1fr); border-top: 3px solid #b5d0d7; min-height: 74px; gap: 8px; }
+.reveal .bio-node { position: relative; padding-top: 12px; font-size: 15px; line-height: 1.3; }
+.reveal .bio-node::before { content: ''; position: absolute; width: 11px; height: 11px; border-radius: 50%; background: #39798a; top: -7px; left: 0; }
+.reveal .bio-node b, .reveal .bio-node span { display: block; }
+.reveal .bio-node b { font-size: 13px; color: #576870; margin-bottom: 4px; }
+.reveal .bio-orange { color: #a95f1f; }
+.reveal .bio-yogurt { border-color: #e5c7a9; }
+.reveal .bio-yogurt .bio-node::before { background: #ba722e; }
+.reveal .bio-yogurt .bio-node { color: #a95f1f; }
+.reveal .bio-yogurt .bio-family { left: -25px; }
+.reveal .slides section.thesis-roadmap > h2 { font-size: 44px; margin-bottom: 24px; }
+.reveal .roadmap-lead { font-size: 25px; color: #576870; margin: 0 0 50px; }
+.reveal .roadmap-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; position: relative; text-align: left; }
+.reveal .roadmap-track::before { content: ''; position: absolute; left: 0; right: 0; top: -19px; border-top: 3px solid #adcbd2; }
+.reveal .roadmap-card { position: relative; box-sizing: border-box; height: 290px; padding: 18px 15px; background: #edf5f6; border: 1px solid #b5cfd5; border-radius: 7px; transition: opacity .3s, background .3s; }
+.reveal .roadmap-card::before { content: ''; position: absolute; left: 14px; top: -25px; width: 11px; height: 11px; border-radius: 50%; background: #39798a; }
+.reveal .roadmap-label { display: block; font-size: 13px; font-weight: bold; color: #39798a; min-height: 20px; }
+.reveal .roadmap-card h3 { font-size: 25px; line-height: 1.15; margin: 14px 0 18px; }
+.reveal .roadmap-card p { font-size: 20px; line-height: 1.35; margin: 0; }
+.reveal .roadmap-method { position: absolute; bottom: 18px; left: 15px; right: 12px; font-size: 16px; font-weight: bold; color: #39798a; }
+.reveal .roadmap-foundation { background: #fbefdf; border-color: #dbb17d; }
+.reveal .roadmap-foundation .roadmap-label, .reveal .roadmap-foundation .roadmap-method { color: #a05b20; }
+.reveal .roadmap-foundation::before { background: #b87532; }
+.reveal .roadmap-return { position: relative; height: 100px; color: #a05b20; }
+.reveal .roadmap-return svg { display: block; width: 100%; height: 65px; }
+.reveal .roadmap-return span { display: block; font-size: 19px; text-align: center; margin-top: 6px; }
+.reveal .roadmap-focus { background: #dcece8; color: #246b59; padding: 16px 18px; border-radius: 7px; font-size: 26px; text-align: center; }
+.reveal .thesis-roadmap:has(.roadmap-focus.visible) .roadmap-other { opacity: .38; filter: grayscale(1); }
+.reveal .thesis-roadmap:has(.roadmap-focus.visible) .roadmap-selected { background: #dcece8; border: 2px solid #39798a; }
+.reveal .slides section.roadmap-recap > h2 { font-size: 42px; margin-bottom: 110px; }
+.reveal .roadmap-recap .roadmap-card { height: 170px; }
+.reveal .roadmap-recap .roadmap-other.visible:not(.current-fragment) { opacity: .38; filter: grayscale(1); }
+.reveal .roadmap-recap .roadmap-other.current-fragment { background: #dcece8; border: 2px solid #39798a; }
+.reveal .roadmap-recap .roadmap-selected { background: #dcece8; border: 2px solid #39798a; }
+.reveal .roadmap-recap:has(.roadmap-other.visible) .roadmap-selected { background: #edf5f6; border: 1px solid #b5cfd5; opacity: .38; filter: grayscale(1); }
+.reveal .roadmap-recap:has(.roadmap-return.visible) .roadmap-foundation { opacity: 1; filter: none; border: 2px solid #b87532; }
+.reveal .roadmap-recap-message { font-size: 31px; text-align: center; margin: 25px 0 0; }
+.reveal .roadmap-recap-message strong { color: #a05b20; }
+.reveal .foundation-definition { font-size: 25px; }
+.reveal .foundation-definition .definition-general,
+.reveal .foundation-definition .definition-example,
+.reveal .foundation-definition .definition-tabular { padding: 16px 22px; border-left: 4px solid #39798a; margin-bottom: 18px; background: rgba(255,255,255,.4); }
+.reveal .foundation-definition p { margin: 0 0 10px; line-height: 1.35; }
+.reveal .foundation-definition p:last-child { margin-bottom: 0; }
+.reveal .foundation-definition .definition-example { border-color: #b87532; }
+.reveal .foundation-definition ul { margin: 0 0 12px 24px; line-height: 1.45; }
+.reveal .foundation-definition .definition-application { font-size: 22px; color: #246b59; margin-top: 14px; }
+.reveal .foundation-definition .foundation-source { font-size: 15px; margin-top: 12px; }
+.reveal .foundation-context { font-size: 22px; line-height: 1.4; color: #246b59; margin: 0 0 22px; }
+.reveal .foundation-context p { margin: 0; }
+.reveal .foundation-cv .foundation-lead { margin-bottom: 18px; }
+.reveal .foundation-cv .foundation-takeaway { margin-top: 18px; padding: 10px 20px; }
+.reveal .cv-context-diagram { display: grid; grid-template-columns: 235px 30px 190px 30px 140px 30px 210px; gap: 16px; justify-content: center; align-items: center; margin-top: 32px; text-align: center; font-size: 21px; }
+.reveal .cv-context-diagram p { margin: 0 0 10px; }
+.reveal .cv-context-diagram p:last-child { margin-bottom: 0; }
+.reveal .cv-inputs { display: grid; gap: 14px; }
+.reveal .cv-context-box, .reveal .cv-test-box { padding: 14px 10px; border-radius: 7px; background: #dcece8; }
+.reveal .cv-test-box { background: #f2cfa3; }
+.reveal .cv-model-box { padding: 22px 8px; border: 2px solid #39798a; border-radius: 7px; background: #edf5f6; font-size: 24px; }
+.reveal .cv-arrow { font-size: 34px; color: #576870; }
+.reveal .cv-evaluation-box { padding: 16px 10px; border: 2px dashed #b87532; border-radius: 7px; }
+.reveal .cv-context-diagram .math { font-size: 25px; }
+.reveal .slides section.foundation-paper-figure > h2 { margin: 0; }
+.reveal .foundation-paper-figure .hollmann-figure { display: block; width: 100%; height: 510px; max-height: none; margin: 12px auto 0; object-fit: contain; }
+.reveal .foundation-paper-figure > p { margin: 0; }
+.reveal .foundation-paper-figure .foundation-source { font-size: 17px; margin-top: 16px; }
+.reveal .roadmap-recap-message small { font-size: 22px; margin-top: 16px; }
+.reveal .bio-join::after { content: ''; position: absolute; left: 5px; top: -49px; height: 42px; border-left: 2px dashed #ba722e; }

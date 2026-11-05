@@ -1,0 +1,119 @@
+---
+title-slide: false
+format: 
+  revealjs:
+    theme: my_theme.scss
+    transition-speed: fast
+    transition: fade
+    slide-number: true
+knitr:
+  opts_chunk:
+    dev: svg
+    dev.args: { bg: "transparent" }
+css: style.css
+bibliography: ../bibliography.bib
+---
+
+
+## 
+
+<div style="font-size: 48px; line-height: 1.15; color: #34424D; text-align: center;">
+Modèles d’apprentissage automatique pour prédire les émissions d’ammoniac issues de la fertilisation organique
+</div>
+
+<div style="height: 30px;"></div>
+
+<!--
+::: {.center}
+Quantitative synthesis of experimental data to predict ammonia volatilization under agricultural fertilization conditions
+:::
+-->
+
+<div style="height: 40px;"></div>
+
+
+:::: {.columns}
+
+<div style = "margin-left: 60px;">
+::: {.column width="50%" .tiny-text}
+
+Armand Favrot - MIA & EcoSys (INRAE)
+
+<div style="height: 5px;"></div>
+
+David Makowski - MIA (INRAE)
+
+Sophie Génermont - EcoSys (INRAE)
+
+Céline Decuq - Ecosys (INRAE)
+
+<div style="height: 5px;"></div>
+
+Vincent Guigue - MIA (INRAE)
+:::
+
+::: {.column width="50%" .tiny3-text}
+:::
+
+</div>
+::::
+
+<div style="height: 30px;"></div>
+
+::: {.center .small-text}
+9 décembre 2026
+:::
+
+<div style = "position: absolute; top: 250px; right: 0px; margin-right: - 50px;">
+<img src="images/broacast_slurry_application.jpg" alt="Logo" style="height: 280px;">
+</div>
+
+
+<div style="position: absolute; top: 125px; right: -80px;">
+<img src="images/ammonia_molecule_2.png" alt="Logo" style="height: 120px;">
+</div>
+
+<div style="position: absolute; top: 160px; left: -54px;">
+<img src="images/ammonia_molecule_3.png" alt="Molécule d’ammoniac" style="height: 80px; width: auto; max-width: none; display: block;">
+</div>
+
+
+<div style="position: absolute; top: 620px; right: 1000px; margin-left: -200px;">
+<img src="images/logo_inrae.png" alt="Logo" style="height: 40px;">
+</div>
+
+<div style="position: absolute; top: 620px; left: 170px;">
+<img src="images/logo_cland.png" alt="Logo" style="height: 40px;">
+</div>
+
+<div style="position: absolute; top: 620px; left: 780px;">
+<img src="images/logo_AgroParisTech.png" alt="Logo" style="height: 42px;">
+</div>
+
+
+<div style="position: absolute; top: 615px; left: 1030px; margin-right: -200px;">
+<img src="images/logo_universite_Paris_Saclay.png" alt="Logo" style="height: 40px;">
+</div>
+
+
+## 
+
+
+<div style="height: 300px;"></div>
+
+
+<div style = "font-size: 50px; text-align: center;">
+Thank you for your attention !
+</div>
+
+
+
+
+
+
+## References
+
+::: {#refs .references}
+:::
+
+
